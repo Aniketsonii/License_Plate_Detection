@@ -158,7 +158,7 @@ function LicensePlateDetection() {
                     onClick={() => {
                       navigator.clipboard.writeText(resp.result);
                     }}
-                  ><a href="https://www.rtovehicleinformation.com/">
+                  ><a href="https://www.rtovehicleinformation.com/" target="_blank">
                     Get Details
                     </a>
                   </button>
