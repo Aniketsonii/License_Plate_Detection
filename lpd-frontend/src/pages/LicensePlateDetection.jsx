@@ -11,13 +11,14 @@ function LicensePlateDetection() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
   const [resp, setResp] = useState(null);
+  const [status, setStatus] = useState("success");
   const location = useLocation();
   const param = location.state;
-  console.log(param);
+  // console.log(param);
 
   const fetchData = async () => {
     try {
-      const url = "http://127.0.0.1:5000/login?username=" + param.username;
+      const url = "https://aniketsoni.pythonanywhere.com/login?username=" + param.username;
       const method = "GET";
       const content = "application/json";
       const result = await getResponse(url, null, method, content);
@@ -36,6 +37,7 @@ function LicensePlateDetection() {
     setResp(null);
     setSelectedFile(null);
     setPreviewUrl(null);
+    setStatus("success");
     document.getElementById("photoupload").reset();
   }
 
@@ -70,15 +72,21 @@ function LicensePlateDetection() {
 
     try {
       setRender(true);
-      const url = "http://127.0.0.1:5000/upload";
+      const url = "https://aniketsoni.pythonanywhere.com/upload";
       const method = "POST";
       const formData = new FormData();
       formData.append("image", selectedFile);
       // const content = 'multipart/form-data';
       const result = await getResponse(url, formData, method, null);
       setResp(result);
+      setStatus("success");
+      console.log(result);
     } catch (error) {
       console.error("Error uploading image:", error);
+      setStatus("failure");
+      console.log(status);
+      setResp(error);
+
     } finally {
       setRender(false);
     }
@@ -148,7 +156,7 @@ function LicensePlateDetection() {
             ""
           )}
           {/* Additional if-else condition */}
-          {resp ? (
+          {resp && status==="success" ? (
             // Code to render when additionalCondition is true
             <>
               <div className="p-4 flex flex-col rounded-lg shadow-md bg-custom-blue2 text-white text-4xl">
@@ -171,8 +179,26 @@ function LicensePlateDetection() {
               </button>
             </>
           ) : (
-            <></>
+            <>
+            {status==="failure" ? (
+            // Code to render when additionalCondition is true
+            <>
+                 <Alert type={status} message={resp+""}/>
+                 <button
+                class="bg-white mt-4 hover:bg-custom-blue2 text-custom-blue2 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                onClick={restore}
+              >
+                Upload Another
+              </button> 
+              </>
+
+          ) : (
+            
+            ""
           )}
+            </>
+          )}
+          
         </div>
         <Footer />
       </>
@@ -181,7 +207,7 @@ function LicensePlateDetection() {
     return (
       <>
         <Header />
-        <Alert />
+        <Alert type={status} message={"You need to login"}/> 
         <Footer />
       </>
     );
@@ -209,7 +235,7 @@ async function getResponse(url, dataurl, method, contentType) {
     // Depending on your use case, you might want to return or do something with the data
     return data;
   } catch (error) {
-    console.error("Error fetching data:", error);
+    throw error;
     // Handle the error as needed
   }
 }

@@ -19,7 +19,7 @@ const Alert = ({ type, message }) => {
 
   return (
     <>
-      {isVisible && (
+      {isVisible && message&& (
         <div
           className={`${
             type !== 'success'
@@ -28,7 +28,7 @@ const Alert = ({ type, message }) => {
           } px-6 py-3 mt-10 w-1/2 rounded top-0 left-1/2 transform -translate-x-1/2 fixed z-50`}
           role="alert"
         >
-          <strong className="font-bold">{message}</strong>
+          <h1 className="font-bold">{message}</h1>
           <span className="absolute top-0 bottom-0 right-0">
             <svg
               className="fill-current h-6 w-6"

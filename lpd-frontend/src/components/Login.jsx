@@ -22,12 +22,13 @@ function Login(props) {
   };
 
   const handleSubmit = (event) => {
+    setMessage(null);
     event.preventDefault();
-    fetch('http://127.0.0.1:5000/login',{
+    fetch('https://aniketsoni.pythonanywhere.com/login',{
       method: 'POST',
       headers:{
         'Content-Type':'application/json',
-        "Access-Control-Allow-Origin": "http://127.0.0.1:5000/*",
+        "Access-Control-Allow-Origin": "https://aniketsoni.pythonanywhere.com/*",
         'Access-Control-Allow-Headers': "Content-Type",
         'Access-Control-Allow-Methods': "GET, POST",
       },
@@ -58,7 +59,7 @@ function Login(props) {
   return props.trigger ? (
     <>
     {console.log(show)}
-    {console.log(type)}
+    {/* {console.log(type)} */}
     {console.log(message)}
     {show ? <Alert type={type} message={message}/> : null}
     <div className='h-screen w-screen' style={{
