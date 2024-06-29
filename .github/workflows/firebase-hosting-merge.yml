@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run:
+      - name: Install dependencies and build
+        run: |
           cd License_Plate_Detection/lpd-frontend
           npm ci
           npm run build
