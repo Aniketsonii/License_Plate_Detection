@@ -220,7 +220,7 @@ async function getResponse(url, dataurl, method, contentType) {
       method: method,
       headers: {
         ...(contentType !== null ? { "Content-Type": contentType } : {}),
-        "Access-Control-Allow-Origin": "http://127.0.0.1:5000/*",
+        "Access-Control-Allow-Origin": "https://aniketsoni.pythonanywhere.com/*",
         "Access-Control-Allow-Headers": "Content-Type",
         "Access-Control-Allow-Methods": "*",
       },
