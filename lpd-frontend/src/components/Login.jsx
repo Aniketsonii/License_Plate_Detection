@@ -71,7 +71,7 @@ function Login(props) {
       <div className="flex flex-col justify-start items-center relative" >
       <div className="w-full max-w-xs ">
         <form
-          className="bg-blue-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col"
+          className="bg-violet-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col"
           onSubmit={handleSubmit}
         >
           <div className='flex flex-col items-end justify-end'>
@@ -101,7 +101,7 @@ function Login(props) {
           </div>
 
           <div className="mb-6">
-            <label className="block text-custom-blue2 text-sm font-bold mb-2">
+            <label className="block text-violet-600 text-lg font-bold mb-2">
               Username
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -114,7 +114,7 @@ function Login(props) {
             </label>
           </div>
           <div className="mb-6">
-            <label className="block text-custom-blue2 text-sm font-bold">
+            <label className="block text-violet-600 text-lg font-bold">
               Password
             </label>
             <input
@@ -130,7 +130,7 @@ function Login(props) {
             <button
               onClick={() => setShow(true)}
               type="submit"
-              className="bg-custom-blue2 hover:bg-custom-blue4 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-violet-600 hover:bg-white hover:text-violet-900 text-white font-bold py-2 px-4 rounded border border-violet-700 focus:outline-none focus:shadow-outline"
             >
               Sign In
             </button>

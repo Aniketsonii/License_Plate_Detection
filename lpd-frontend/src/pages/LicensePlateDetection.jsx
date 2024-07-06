@@ -95,10 +95,7 @@ function LicensePlateDetection() {
   if (data.status === "success") {
     return (
       <>
-        <header className="fixed top-0 w-screen z-10">
-          <Header />
-        </header>
-        <div className="flex flex-col justify-center items-center h-screen  bg-[linear-gradient(to_right_bottom,rgba(32,151,172,0.3),rgba(0,142,198,0.5)),url('https://images.unsplash.com/photo-1534706438758-534c634c4591?q=80&w=2439&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover">
+        <div className="flex flex-col justify-center items-center h-screen  bg-[linear-gradient(to_right_bottom,rgba(135,65,255,0.5),rgba(135,65,255,0)),url('https://images.unsplash.com/photo-1534706438758-534c634c4591?q=80&w=2439&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover">
           <div
             className={
               "max-w-md mx-auto mt-8 p-4 bg-gray-100 rounded-md shadow-md" +
@@ -138,7 +135,7 @@ function LicensePlateDetection() {
               <button
                 encType="multipart/form-data"
                 type="submit"
-                className="mt-4 p-2 w-full bg-custom-blue2 text-white rounded-md hover:bg-custom-blue4 focus:outline-none focus:shadow-outline-blue"
+                className="mt-4 p-2 w-full font-bold bg-violet-600 hover:bg-white text-white rounded-md hover:text-violet-900 border border-violet-700 focus:outline-none focus:shadow-outline-blue"
               >
                 Submit
               </button>
@@ -148,9 +145,9 @@ function LicensePlateDetection() {
             // Code to render when additionalCondition is true
             <div class="flex space-x-2 justify-center items-center bg-transparent">
               <span class="sr-only">Loading...</span>
-              <div class="h-4 w-4 bg-white border-custom-blue2 border-2 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-              <div class="h-4 w-4 bg-white border-custom-blue2 border-2 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-              <div class="h-4 w-4 bg-white border-custom-blue2 border-2 rounded-full animate-bounce"></div>
+              <div class="h-4 w-4 bg-white border-violet-600 border-2 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+              <div class="h-4 w-4 bg-white border-violet-600 border-2 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+              <div class="h-4 w-4 bg-white border-violet-600 border-2 rounded-full animate-bounce"></div>
             </div>
           ) : (
             ""
@@ -159,10 +156,10 @@ function LicensePlateDetection() {
           {resp && status==="success" ? (
             // Code to render when additionalCondition is true
             <>
-              <div className="p-4 flex flex-col rounded-lg shadow-md bg-custom-blue2 text-white text-4xl">
+              <div className="p-6 flex flex-col rounded-lg shadow-md bg-violet-700 text-white text-4xl">
                 {resp.result}
                   <button
-                    class="bg-white text-base font-semibold justify-center hover:bg-custom-blue2 text-custom-blue2  hover:text-white border border-blue-500 hover:border-transparent rounded"
+                    class="bg-white m-2 text-base font-semibold justify-center hover:bg-violet-900 text-violet-900  hover:text-white border border-violet-900 hover:border-transparent rounded"
                     onClick={() => {
                       navigator.clipboard.writeText(resp.result);
                     }}
@@ -172,7 +169,7 @@ function LicensePlateDetection() {
                   </button>
               </div>
               <button
-                class="bg-white mt-4 hover:bg-custom-blue2 text-custom-blue2 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                class="bg-white mt-4 hover:bg-violet-900 text-violet-900 font-semibold hover:text-white py-2 px-4 border border-violet-900 hover:border-transparent rounded"
                 onClick={restore}
               >
                 Upload Another
@@ -185,7 +182,7 @@ function LicensePlateDetection() {
             <>
                  <Alert type={status} message={resp+""}/>
                  <button
-                class="bg-white mt-4 hover:bg-custom-blue2 text-custom-blue2 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                class="bg-white mt-4 hover:bg-violet-900 text-violet-900 font-semibold hover:text-white py-2 px-4 border border-violet-900 hover:border-transparent rounded"
                 onClick={restore}
               >
                 Upload Another
@@ -200,7 +197,6 @@ function LicensePlateDetection() {
           )}
           
         </div>
-        <Footer />
       </>
     );
   } else {

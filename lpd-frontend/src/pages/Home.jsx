@@ -10,13 +10,9 @@ function Home() {
 
   return (
     <>
-      {/* Header */}
-      <header className="fixed top-0 w-screen z-10">
-        <Header />
-      </header>
       <div
         id="home"
-        className={'flex flex-nowrap flex-col min-h-screen bg-[linear-gradient(to_right_bottom,rgba(0,142,198,0.9),rgba(32,151,172,0)),url(https://cdn.pixabay.com/photo/2018/08/18/06/05/license-plates-3614254_1280.jpg)] bg-cover ease-in-out' +(buttonPopup ? " transition delay-100 ease-in-out blur-sm" : "") }
+        className={'flex flex-nowrap flex-col min-h-screen bg-[linear-gradient(to_right_bottom,rgba(135,65,255,0.7),rgba(135,65,255,0)),url(https://cdn.pixabay.com/photo/2018/08/18/06/05/license-plates-3614254_1280.jpg)] bg-cover ease-in-out' +(buttonPopup ? " transition delay-100 ease-in-out blur-sm" : "") }
       >
         {/* Main Content */}
         <main className=" grid mt-16 flex-col items-start justify-start">
@@ -35,23 +31,12 @@ function Home() {
           {/* <Login trigger={buttonPopup}/> */}
         </main>
         <div>
-          <button className="bg-custom-blue1 ml-4 hover:bg-white hover:text-custom-blue1 text-white font-bold py-2 px-4 border border-cyan-600 rounded" onClick={() => setbuttonPopup(true)}>Login</button>
+          <button className="bg-violet-600 ml-4 hover:bg-white hover:text-violet-900 text-white font-bold py-2 px-4 border border-violet-700 rounded" onClick={() => setbuttonPopup(true)}>Login</button>
         </div>
       </div>
-      <div
-        style={{
-          // position: "absolute",
-          // left: "50%",
-          // top: "50%",
-          // transform: "translate(-50%, -25%)",
-        }}
-      >
+      <div>
         <Login trigger={buttonPopup} setTrigger={setbuttonPopup} />
       </div>
-      {/* Footer */}
-      <footer className=" fixed bottom-0 w-screen">
-        <Footer />
-      </footer>
     </>
   );
 }
