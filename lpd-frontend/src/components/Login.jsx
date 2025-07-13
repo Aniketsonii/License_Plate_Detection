@@ -74,6 +74,10 @@ function Login(props) {
           className="bg-violet-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col"
           onSubmit={handleSubmit}
         >
+          <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
+            <p class="font-bold">Test</p>
+            <p class="text-sm">Username: admin, Password: password</p>
+          </div>
           <div className='flex flex-col items-end justify-end'>
           <button
             onClick={()=>props.setTrigger(false)}
