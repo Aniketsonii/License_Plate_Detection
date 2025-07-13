@@ -99,7 +99,7 @@ function Login(props) {
           </button>
             
           </div>
-          <div class="bg-violet-100 border-t border-b border-violet-500 text-violet-700 px-4 py-3" role="alert">
+          <div class="bg-violet-100 border-t border-b border-violet-500 text-violet-700 px-2 py-3" role="alert">
             <p class="font-bold">Test</p>
             <p class="text-xs">Username: admin, Password: password</p>
           </div>
